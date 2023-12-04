@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install Expo CLI
         run: npm install -g expo-cli
@@ -37,8 +37,6 @@ jobs:
 
       - name: EAS Build Android
         run: eas build -p android --non-interactive
-        env:
-          EXPO_CLI_API_KEY: ${{ secrets.EXPO_CLI_API_KEY }}
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v2
