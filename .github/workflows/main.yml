@@ -44,5 +44,21 @@ jobs:
           name: app-release
           path: ./.eas/build/*.apk
   test:
-    - name: run test cases
-      run: npm test
+      runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: npm test
