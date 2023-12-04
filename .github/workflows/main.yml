@@ -43,3 +43,6 @@ jobs:
         with:
           name: app-release
           path: ./.eas/build/*.apk
+  test:
+    - name: run test cases
+      run: npm test
