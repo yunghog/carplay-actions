@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import MainBg from "../assets/main-bg.png";
+import Call911 from "../components/call911";
 
 export const LandingFactory = () => ({
   createHeader: () => <Text style={styles.headerText}>Default Header</Text>,
@@ -37,6 +38,15 @@ export const Landing = ({ factory }) => {
     <ImageBackground source={MainBg} style={styles.backgroundImage}>
       <View style={styles.headerContainer}>{Header}</View>
       <View style={styles.middleContainer}>{Body}</View>
+      <View
+        style={{
+          alignItems: "center",
+          flex: 1,
+          justifyContent: "center",
+        }}
+      >
+        <Call911 />
+      </View>
     </ImageBackground>
   );
 };
@@ -47,23 +57,23 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     resizeMode: "cover",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
+    flexDirection: "column",
   },
   headerContainer: {
     backgroundColor: "rgba(128, 0, 128, 0.8)",
-    paddingHorizontal: width * 0.05,
-    paddingVertical: height * 0.02,
+    paddingHorizontal: 10,
+    paddingVertical: 20,
     borderRadius: 20,
-    position: "absolute",
-    top: height * 0.05,
+    marginBottom: 20,
   },
   headerText: { fontSize: 32, fontWeight: "bold", color: "#E1FF00" },
   middleContainer: {
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(255, 69, 0, 0.8)",
-    padding: height * 0.03,
+    padding: 20,
     borderRadius: 30,
     elevation: 5,
   },
