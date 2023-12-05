@@ -8,6 +8,7 @@ import {
   Dimensions,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import MainBg from "../assets/main-bg.png";
 
 export const LandingFactory = () => ({
   createHeader: () => <Text style={styles.headerText}>Default Header</Text>,
@@ -33,10 +34,7 @@ export const Landing = ({ factory }) => {
   const Header = factory.createHeader();
   const Body = factory.createBody();
   return (
-    <ImageBackground
-      source={require("./../assets/main_bg.png")}
-      style={styles.backgroundImage}
-    >
+    <ImageBackground source={MainBg} style={styles.backgroundImage}>
       <View style={styles.headerContainer}>{Header}</View>
       <View style={styles.middleContainer}>{Body}</View>
     </ImageBackground>
